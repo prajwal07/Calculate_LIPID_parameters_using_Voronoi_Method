@@ -42,7 +42,7 @@ You can used VMD to save PDBs from MD trajectory.
                 Last frame number . (Example: "-stop 20", "If last PDB filenames in sequence is frame_5.pdb").
             
         :Returns:
-            *AREA PER LIPID VALUES FOR TOP LAYER, BOTTOM LAYER, AND AVERAGE VALUES FOR ALL LIPIDS, BOUND LIPIDS< AND UNBOUND LIPIDS.*
+            *AREA PER LIPID VALUES FOR TOP LAYER, BOTTOM LAYER, AND AVERAGE VALUES FOR ALL LIPIDS, BOUND LIPIDS AND UNBOUND LIPIDS.*
 
 Command:
         python calc_lipid_parameters_voronoi.py -i prefix -start frame_number -stop frame_number
@@ -245,7 +245,7 @@ output_data_file_name = "LIPIDS_PROPERTIES.DAT"
 output_data_file = open(output_data_file_name, 'w')
 output_data_file_lines = []
 
-output_header2 = "FILENAME | X_DIMENSION | Y_DIMENSION | TOP_ALL_LIPIDS | TOP_APL_ALL | TOP_BOUND_LIPIDS | TOP_APL_BOUND | TOP_UNBOUND_LIPIDS | TOP_APL_UNBOUND | DOWN_ALL_LIPIDS | DOWN_APL_ALL | DOWN_BOUND_LIPIDS | DOWN_APL_BOUND | DOWN_UNBOUND_LIPIDS | DOWN_APL_UNBOUND " + "\n"
+output_header2 = "FILENAME | X_DIMENSION | Y_DIMENSION | TOP_ALL_LIPIDS | TOP_APL_ALL | TOP_BOUND_LIPIDS | TOP_APL_BOUND | TOP_UNBOUND_LIPIDS | TOP_APL_UNBOUND | DOWN_ALL_LIPIDS | DOWN_APL_ALL | DOWN_BOUND_LIPIDS | DOWN_APL_BOUND | DOWN_UNBOUND_LIPIDS | DOWN_APL_UNBOUND | ALL_LIPIDS | AVG_APL_ALL | ALL_BOUND_LIPIDS | AVG_APL_BOUND | ALL_UNBOUND_LIPIDS | AVG_APL_UNBOUND " + "\n"
 
 output_data_file_lines.append(output_header2)
 
