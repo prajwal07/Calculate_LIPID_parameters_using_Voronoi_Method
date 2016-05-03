@@ -6,7 +6,7 @@ import numpy as np
 import argparse
 import subprocess
 from tabulate import tabulate
-
+import os.path
 ######################################################
 
 parser = argparse.ArgumentParser(description='Calculate LIPID parameters using Voronoi tessellation and Monte Carlo integration methods. \n Command: "python calc_lipid_parameters_voronoi.py -i prefix -start frame_number -stop frame_number" ')
@@ -245,7 +245,7 @@ output_data_file_name = "LIPIDS_PROPERTIES.DAT"
 output_data_file = open(output_data_file_name, 'w')
 output_data_file_lines = []
 
-output_header2 = "FILENAME | X_DIMENSION | Y_DIMENSION | TOP_ALL_LIPIDS | TOP_APL_ALL | TOP_BOUND_LIPIDS | TOP_APL_BOUND | TOP_UNBOUND_LIPIDS | TOP_APL_UNBOUND | DOWN_ALL_LIPIDS | DOWN_APL_ALL | DOWN_BOUND_LIPIDS | DOWN_APL_BOUND | DOWN_UNBOUND_LIPIDS | DOWN_APL_UNBOUND | ALL_LIPIDS | AVG_APL_ALL | ALL_BOUND_LIPIDS | AVG_APL_BOUND | ALL_UNBOUND_LIPIDS | AVG_APL_UNBOUND " + "\n"
+output_header2 = "FRAME | X_DIMENSION | Y_DIMENSION | TOP_ALL_LIPIDS | TOP_APL_ALL | TOP_BOUND_LIPIDS | TOP_APL_BOUND | TOP_UNBOUND_LIPIDS | TOP_APL_UNBOUND | DOWN_ALL_LIPIDS | DOWN_APL_ALL | DOWN_BOUND_LIPIDS | DOWN_APL_BOUND | DOWN_UNBOUND_LIPIDS | DOWN_APL_UNBOUND | ALL_LIPIDS | AVG_APL_ALL | ALL_BOUND_LIPIDS | AVG_APL_BOUND | ALL_UNBOUND_LIPIDS | AVG_APL_UNBOUND " + "\n"
 
 output_data_file_lines.append(output_header2)
 
@@ -338,16 +338,23 @@ def extract_data(frame):
 
 ####################################################################################################
 
-    output_data = "frame_" + ('%d' % frame) + " | " + ('%3f' % xdim) + " | " + ('%3f' % ydim) + " | " + ('%s' % up_output)  + " | " + ('%s' % down_output) + " | " + ('%s' % avg_output) + "\n"
+    output_data = ('%d' % frame) + " | " + ('%3f' % xdim) + " | " + ('%3f' % ydim) + " | " + ('%s' % up_output)  + " | " + ('%s' % down_output) + " | " + ('%s' % avg_output) + "\n"
     print output_data
     output_data_file_lines.append(output_data)
 
 ####################################################################################################
 
 for frame in range(start_frame_num, last_frame_num+1):
-    modify_pdbs(frame)
-    generate_conf_file(frame)
-    extract_data(frame)
+
+    input_PDB_file_name = ('%s' % input_file_name_prefix) + "_" + ('%d' % frame) + ".pdb"
+    if os.path.isfile(input_PDB_file_name) and os.access(input_PDB_file_name, os.R_OK):
+#        print "File exists and is readable"
+        modify_pdbs(frame)
+        generate_conf_file(frame)
+        extract_data(frame)
+
+    else:
+        print "%s file is either missing or is not readable \n " % (input_PDB_file_name)
 
 output_data_file.writelines(output_data_file_lines)
 remove_temp = "rm -rf temp*"
