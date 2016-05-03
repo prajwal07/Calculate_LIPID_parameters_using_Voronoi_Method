@@ -1,0 +1,21 @@
+#############################################################################################################################################
+#### VMD script to Stride/Strip the trajectory and save the mentioned Frames in PDB format ##################################################
+##### RUN Command: vmd -e stride_and_save_frames.vmd -dispdev none ##########################################################################
+
+######################### LOAD PRMTOP / PDB FILE ############################################################################################
+mol new system.prmtop
+######################### LOAD AMBER DCD TRAJECTORIES FILE ##################################################################################
+mol addfile trajectory.dcd type dcd step 1 waitfor all
+######################### READ NUMBER OF FRAMES IN DCD FILE #################################################################################
+######################### STRIDE FRAMES AND SAVE ONLY PROTEIN LIGANDS AND MEMBRANE ##########################################################
+set numframes [molinfo 0 get numframes]
+
+for {set i 0} {$i < $numframes} {incr i } {
+### Make selection for protein, membrane, ligands ###
+### Set name of output PDB files, Eg: frame_1.pdb ###
+[atomselect top "protein or resname POC" frame $i] writepdb frame_$i.pdb
+
+}
+quit
+
+
