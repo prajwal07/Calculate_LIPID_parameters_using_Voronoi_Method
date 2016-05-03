@@ -31,6 +31,7 @@ Make sure the box information should be present as header line in PDB files. (Yo
 Essential Note:
 1) Make sure the box information should be present as header line in PDB files.
 You can used VMD to save PDBs from MD trajectory.
+Sample VMD script is in Examples directory 'stride_and_save_frames.vmd'
 2) Make sure the "vtmc" binary file is in working directory
 
         :Arguments:
