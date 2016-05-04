@@ -33,6 +33,8 @@ Essential Note:
 You can used VMD to save PDBs from MD trajectory.
 Sample VMD script is in Examples directory 'stride_and_save_frames.vmd'
 2) Make sure the "vtmc" binary file is in working directory
+3) Make a plot of Avg. APL using Xmgrace.
+Sample script is in Examples directory 'xmgrace_plot_APL_data.xvg'
 
         :Arguments:
             *pdbfile*
@@ -246,7 +248,7 @@ output_data_file_name = "APL_LIPIDS_PROPERTIES.DAT"
 output_data_file = open(output_data_file_name, 'w')
 output_data_file_lines = []
 
-output_header2 = "FRAME | X_DIMENSION | Y_DIMENSION | TOP_ALL_LIPIDS | TOP_APL_ALL | TOP_BOUND_LIPIDS | TOP_APL_BOUND | TOP_UNBOUND_LIPIDS | TOP_APL_UNBOUND | DOWN_ALL_LIPIDS | DOWN_APL_ALL | DOWN_BOUND_LIPIDS | DOWN_APL_BOUND | DOWN_UNBOUND_LIPIDS | DOWN_APL_UNBOUND | ALL_LIPIDS | AVG_APL_ALL | ALL_BOUND_LIPIDS | AVG_APL_BOUND | ALL_UNBOUND_LIPIDS | AVG_APL_UNBOUND " + "\n"
+output_header2 = "#FRAME | X_DIMENSION | Y_DIMENSION | TOP_ALL_LIPIDS | TOP_APL_ALL | TOP_BOUND_LIPIDS | TOP_APL_BOUND | TOP_UNBOUND_LIPIDS | TOP_APL_UNBOUND | DOWN_ALL_LIPIDS | DOWN_APL_ALL | DOWN_BOUND_LIPIDS | DOWN_APL_BOUND | DOWN_UNBOUND_LIPIDS | DOWN_APL_UNBOUND | ALL_LIPIDS | AVG_APL_ALL | ALL_BOUND_LIPIDS | AVG_APL_BOUND | ALL_UNBOUND_LIPIDS | AVG_APL_UNBOUND " + "\n"
 
 output_data_file_lines.append(output_header2)
 
