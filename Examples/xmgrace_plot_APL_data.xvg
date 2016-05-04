@@ -47,10 +47,10 @@ WORLD YMAX 80
 WORLD YMIN 40
 yaxis tick major 10 
 yaxis tick minor 5
-WORLD XMAX 6
-WORLD XMIN 0
-xaxis tick major 2
-xaxis tick minor 1
+#WORLD XMAX 6
+#WORLD XMIN 0
+#xaxis tick major 2
+#xaxis tick minor 1
 xaxis ticklabel on
 ####### Plot title #### 
 title "Average Area per Lipid (APL) Plot"
