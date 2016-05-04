@@ -95,7 +95,7 @@ def modify_pdbs(frame):
 ##inputfile=%s_%d.pdb
 i=%d
 file=%s_${i}.pdb
-echo $file
+#echo $file
 output=temp_frame_ren_${i}.pdb
 l=`fgrep -n PA $file  | cut -d':' -f 1`
 tmp=
@@ -112,25 +112,25 @@ n=`sed "${tmp}q;d" $file | cut -c23-27`
 cmd="${cmd} -e \\"s/X\\\(\\\ \\\?\\\)$((n+1))/X\\\\\\1$((n))/g\\""
 cmd="${cmd} -e \\"s/X\\\(\\\ \\\?\\\)$((n+2))/X\\\\\\1$((n))/g\\""
 
-echo Build
+#echo Build
 
 echo $cmd $file > temp_comm.sh
 chmod +x temp_comm.sh
 
-echo Running ... Please wait ... 
+#echo Running ... Please wait ... 
 
 ./temp_comm.sh > $output
 rm temp_comm.sh
-echo "Rename output file"
+#echo "Rename output file"
 mv $output $file
-echo Done
+#echo Done
 
 """ % (input_file_name_prefix, frame, frame, input_file_name_prefix)
 
     for line in input_PDB_file:
         if find_lipid14 in line:
-            print "The input PDBs consist of LIPID molecules for LIPID14 force fields."
-            print "Now, generating and running the script to preprocess the PDBs for LIPID14: %s" % preprocess_filename
+#            print "The input PDBs consist of LIPID molecules for LIPID14 force fields."
+#            print "Now, generating and running the script to preprocess the PDBs for LIPID14: %s" % preprocess_filename
             with open(preprocess_filename, 'w') as f:
                 f.write(script_data)
                 lipid14_flag = 1
