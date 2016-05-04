@@ -46,6 +46,8 @@ Essential Note:
 You can used VMD to save PDBs from MD trajectory.
 Sample VMD script is in Examples directory 'stride_and_save_frames.vmd'
 2) Make sure the "vtmc" binary file is in working directory
+3) Make a plot of Avg. APL using Xmgrace.
+Sample script is in Examples directory 'xmgrace_plot_APL_data.xvg'
 
         :Arguments:
             *pdbfile*
