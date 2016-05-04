@@ -7,7 +7,7 @@
 ####################### DESCRIPTION #############################
 #################################################################
 
-Python Script to Calculate LIPID parameters using Voronoi tessellation and Monte Carlo integration methods.
+Python Script to Calculate LIPID parameters (Area Per Lipid) using Voronoi tessellation and Monte Carlo integration methods.
 
 By: Prajwal Nandekar
 Email: prajwal.pharm07@gmail.com
@@ -37,7 +37,7 @@ Directory: ~/Examples
 
 Description:
 
-This script calculate the LIPID parameters using Voronoi tessellation and Monte Carlo integration methods.
+This script calculate the LIPID parameters (Area Per Lipid) using Voronoi tessellation and Monte Carlo integration methods.
  Prior to running this script an you need PDB files exatracted from MD trajectory in sequences.
 For example: frame_0.pdb, frame_1.pdb ... frame_5.pdb.
 
