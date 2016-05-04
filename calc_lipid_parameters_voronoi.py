@@ -9,7 +9,7 @@ from tabulate import tabulate
 import os.path
 ######################################################
 
-parser = argparse.ArgumentParser(description='Calculate LIPID parameters using Voronoi tessellation and Monte Carlo integration methods. \n Command: "python calc_lipid_parameters_voronoi.py -i prefix -start frame_number -stop frame_number" ')
+parser = argparse.ArgumentParser(description='Calculate LIPID parameters (Area Per Lipid) using Voronoi tessellation and Monte Carlo integration methods. \n Command: "python calc_lipid_parameters_voronoi.py -i prefix -start frame_number -stop frame_number" ')
 parser.add_argument('-i', '--input1', dest = "pdbfile_prefix", help='Input prefix of PDB filenames. (Example: "-i frame", "if PDB filenames are frame_1.pdb").')
 parser.add_argument('-start', '--input2', dest = "start_frame", help='Starting frame number. (Example: "-start 1", "If PDB filenames sequence starts from frame_1.pdb").')
 parser.add_argument('-stop', '--input3', dest = "stop_frame", help='Last frame number . (Example: "-stop 5", "If last PDB filenames in sequence is frame_5.pdb").')
@@ -19,11 +19,11 @@ args = parser.parse_args()
 """
 Application:
 
-Python Script to Calculate LIPID parameters using Voronoi tessellation and Monte Carlo integration methods.
+Python Script to Calculate LIPID parameters (Area Per Lipid) using Voronoi tessellation and Monte Carlo integration methods.
 
 Description:
 
-This script calculate the LIPID parameters using Voronoi tessellation and Monte Carlo integration methods. 
+This script calculate the LIPID parameters (Area Per Lipid) using Voronoi tessellation and Monte Carlo integration methods. 
 Prior to running this script an you need PDB files exatracted from MD trajectory in sequences. 
 For example: frame_0.pdb, frame_1.pdb ... frame_5.pdb.
 Make sure the box information should be present as header line in PDB files. (You can used VMD to save PDBs from MD trajectory.
@@ -242,7 +242,7 @@ DECIMAL_PLACE =  12
 ###################################################################################################
 
 ####################################################################################################
-output_data_file_name = "LIPIDS_PROPERTIES.DAT"
+output_data_file_name = "APL_LIPIDS_PROPERTIES.DAT"
 output_data_file = open(output_data_file_name, 'w')
 output_data_file_lines = []
 
