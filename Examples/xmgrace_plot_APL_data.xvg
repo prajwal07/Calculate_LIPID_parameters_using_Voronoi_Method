@@ -1,0 +1,59 @@
+### RUN COMMAND #####
+### "xmgrace -batch xmgrace_plot_APL_data.xvg -nosafe -hardcopy -printfile "plot_APL_data.jpg" -hdevice JPEG" ####
+
+# make a panel plot
+#arrange (3,2,.1,.2,.4,ON,OFF,OFF)
+PAGE SIZE 6000, 5000
+PRINT
+#########################################################################
+############################################################
+### The 0th panel ######
+FOCUS G0
+#### Input files ####
+READ BLOCK "APL_LIPIDS_PROPERTIES.DAT"
+# Data for Avg APL of "All LIPIDS"
+BLOCK XY "1:33"
+# Data for Avg APL of "Bound LIPIDS"
+BLOCK XY "1:37"
+# Data for Avg APL of "UnBound LIPIDS"
+BLOCK XY "1:41"
+
+##### Symbol type ########
+s0 symbol 1
+s0 line type 1
+s0 symbol size 0.2
+
+s1 symbol 1
+s1 line type 1
+s1 symbol size 0.2
+
+s2 symbol 1
+s2 line type 1
+s2 symbol size 0.2
+##### Symbol color ########
+s0 color 1
+s1 color 2
+s2 color 3
+#### Axis properties ####
+
+####Data legends ######
+s0 legend "All LIPIDS"
+s1 legend "BOUND LIPIDS"
+s2 legend "UNBOUND LIPIDS"
+### Legend box ########
+legend 0.85, 0.85
+########################
+WORLD YMAX 80
+WORLD YMIN 40
+yaxis tick major 10 
+yaxis tick minor 5
+WORLD XMAX 6
+WORLD XMIN 0
+xaxis tick major 2
+xaxis tick minor 1
+xaxis ticklabel on
+####### Plot title #### 
+title "Average Area per Lipid (APL) Plot"
+subtitle "GAFF LIPID" 
+yaxis label "APL (\cE\C\S2\N) " 
+xaxis label "Frames"
