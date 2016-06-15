@@ -35,7 +35,8 @@ Sample VMD script is in Examples directory 'stride_and_save_frames.vmd'
 2) Make sure the "vtmc" binary file is in working directory
 3) Make a plot of Avg. APL using Xmgrace.
 Sample script is in Examples directory 'xmgrace_plot_APL_data.xvg'
-
+4) Make a plot of Vernoi's diagram for Protein-lipid distributions in GNUPLOT.
+Sample script is in Examples directory  'gnuplot_vernoi_diagram.gp'
         :Arguments:
             *pdbfile*
                 Input prefix of PDB filenames. (Example: "-i frame", "if PDB filenames are frame_1.pdb").
